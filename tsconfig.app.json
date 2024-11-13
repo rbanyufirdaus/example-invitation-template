@@ -29,5 +29,5 @@
       ]
     }
   },
-  "include": ["lib", "lib/vite-env.d.ts"]
+  "include": ["src", "src/vite-env.d.ts", "src/index.ts"]
 }
