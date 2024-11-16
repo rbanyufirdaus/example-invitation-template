@@ -1,11 +1,12 @@
 import HeroImage from '@/assets/images/hero.png'
+import { generateMetadata } from '@/lib/utils';
 import { useMemo } from 'react';
 
 type FileUpload = string
 
 export interface HeroSectionProps {
-    title: string;
-    date: Date;
+    title?: string;
+    date?: Date;
     imageUrl?: FileUpload;
 }
 
@@ -29,3 +30,5 @@ export const HeroSection = ({title = 'Kapan Kapan', date = new Date('12/31/2024'
         </section>
     )
 }
+
+export const HeroSectionMetadata = generateMetadata(HeroSection);

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import moment from 'moment';
+import { generateMetadata } from "@/lib/utils";
 
 const calculateDuration = (eventTime: number) =>
     moment.duration(
@@ -8,7 +9,7 @@ const calculateDuration = (eventTime: number) =>
     );
 
 export interface CountdownSectionProps {
-    date: Date;
+    date?: Date;
 }
 
 export const CountdownSection = ({date = new Date('12/31/2024')}: CountdownSectionProps) => {    
@@ -45,7 +46,7 @@ export const CountdownSection = ({date = new Date('12/31/2024')}: CountdownSecti
                 {formattedDate}
                 <div className="flex gap-8">
                     <div className="flex flex-col items-center">
-                        <div className="text-5xl">{duration.days().toString().padStart(2, "0")}</div>
+                        <div className="text-5xl">{Math.floor(duration.asDays()).toString().padStart(2, "0")}</div>
                         <p className="text-lg">Days</p>
                     </div>
                     <div className="flex flex-col items-center">
@@ -65,3 +66,5 @@ export const CountdownSection = ({date = new Date('12/31/2024')}: CountdownSecti
         </section>
     )
 }
+
+export const CountdownSectionMetadata = generateMetadata(CountdownSection);

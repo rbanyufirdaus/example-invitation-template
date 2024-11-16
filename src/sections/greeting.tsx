@@ -1,7 +1,9 @@
+import { generateMetadata } from "@/lib/utils";
+
 export interface GreetingSectionProps {
-    title: string;
-    brideName: string;
-    groomName: string;
+    title?: string;
+    brideName?: string;
+    groomName?: string;
 }
 
 export const GreetingSection = ({title = 'We are Getting Married', brideName = 'Bride Name', groomName = 'Groom Name'}: GreetingSectionProps) => {    
@@ -25,3 +27,5 @@ export const GreetingSection = ({title = 'We are Getting Married', brideName = '
         </section>
     )
 }
+
+export const GreetingSectionMetadata = generateMetadata(GreetingSection);
