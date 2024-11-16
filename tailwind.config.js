@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			sans: ['"PlayFair"',"ui-sans-serif","system-ui","sans-serif",'"Apple Color Emoji"','"Segoe UI Emoji"','"Segoe UI Symbol"','"Noto Color Emoji"']
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
