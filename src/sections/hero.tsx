@@ -31,4 +31,9 @@ export const HeroSection = ({title = 'Kapan Kapan', date = new Date('12/31/2024'
     )
 }
 
+HeroSection.metadata = {
+    name: 'HeroSection',
+    props: generateMetadata(HeroSection)
+}
+
 export const HeroSectionMetadata = generateMetadata(HeroSection);

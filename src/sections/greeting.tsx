@@ -28,4 +28,9 @@ export const GreetingSection = ({title = 'We are Getting Married', brideName = '
     )
 }
 
+GreetingSection.metadata = {
+    name: GreetingSection.toString(),
+    props: generateMetadata(GreetingSection)
+}
+
 export const GreetingSectionMetadata = generateMetadata(GreetingSection);
