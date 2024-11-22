@@ -1,5 +1,5 @@
 import Ur, { useMemo as Wt, useState as xs, useRef as zs, useCallback as Ds, useEffect as Ys } from "react";
-var Zt = { exports: {} }, Le = {};
+import './index.css';var Zt = { exports: {} }, Le = {};
 /**
  * @license React
  * react-jsx-runtime.production.min.js

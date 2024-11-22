@@ -1,3 +1,4 @@
+import "./assets/index.css"
 export * from './template'
 export * from './sections/hero'
 export * from './sections/greeting'
