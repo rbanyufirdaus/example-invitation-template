@@ -6,27 +6,72 @@ import tailwindcss from "tailwindcss";
 import path from "path"
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import { Plugin } from "vite";
-import { parse } from "react-docgen-typescript";
+import { parse, ComponentDoc } from "react-docgen-typescript";
+import * as ts from "typescript";
+import fs from "fs";
 
 // import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 function ReactMetadataPlugin(): Plugin {
   return {
-    name: "react-metadata-plugin",
-    transform(code, id) {
-      if (id.endsWith(".tsx")) {
-        const componentDocs = parse(id, { savePropValueAsString: true });
+    name: "vite-react-metadata",
 
-        if (componentDocs.length > 0) {
-          const metadata = componentDocs[0];
-          const metadataCode = `
-            const metadata = ${JSON.stringify(metadata, null, 2)};
-            Component.metadata = metadata;
-          `;
-          return `${code}\n${metadataCode}`;
+    transform(code, id) {
+      if (!id.endsWith(".tsx")) return;
+
+      try {
+        // Generate metadata using react-docgen-typescript
+        const componentDocs: ComponentDoc[] = parse(id, { savePropValueAsString: true });
+        if (componentDocs.length === 0) return code; // Skip if no metadata
+
+        const metadata = componentDocs[0];
+
+        // Determine the component's export name
+        const sourceFile = ts.createSourceFile(
+          id,
+          fs.readFileSync(id, "utf-8"),
+          ts.ScriptTarget.ESNext,
+          true
+        );
+
+        let componentName: string | null = null;
+
+        ts.forEachChild(sourceFile, (node) => {
+          // Check for default export assignment
+          if (ts.isExportAssignment(node) && ts.isIdentifier(node.expression)) {
+            componentName = node.expression.escapedText.toString();
+          }
+
+          // Check for named exports (export const Button)
+          if (
+            ts.isVariableStatement(node) &&
+            node.modifiers?.some((mod) => mod.kind === ts.SyntaxKind.ExportKeyword)
+          ) {
+            const declaration = node.declarationList.declarations[0];
+            if (ts.isIdentifier(declaration.name)) {
+              componentName = declaration.name.escapedText.toString();
+            }
+          }
+        });
+
+        if (!componentName) {
+          console.warn(`No valid export found for component in: ${id}`);
+          return code;
         }
+
+        // Append metadata to the component
+        const metadataCode = `
+          const metadata = ${JSON.stringify(metadata, null, 2)};
+          if (typeof ${componentName} !== "undefined") {
+            ${componentName}.metadata = metadata;
+          }
+        `;
+
+        return `${code}\n${metadataCode}`;
+      } catch (error) {
+        console.warn(`Failed to generate metadata for ${id}:`, error);
+        return code;
       }
-      return null;
     },
   };
 }
