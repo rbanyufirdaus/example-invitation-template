@@ -1,4 +1,4 @@
-import { generateMetadata } from "@/lib/utils";
+// import { generateMetadata } from "@/lib/utils";
 
 export interface GreetingSectionProps {
     title?: string;
@@ -28,9 +28,9 @@ export const GreetingSection = ({title = 'We are Getting Married', brideName = '
     )
 }
 
-GreetingSection.metadata = {
-    name: GreetingSection.toString(),
-    props: generateMetadata(GreetingSection)
-}
+// GreetingSection.metadata = {
+//     name: GreetingSection.toString(),
+//     props: generateMetadata(GreetingSection)
+// }
 
-export const GreetingSectionMetadata = generateMetadata(GreetingSection);
+// export const GreetingSectionMetadata = generateMetadata(GreetingSection);

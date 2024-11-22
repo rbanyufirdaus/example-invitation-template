@@ -1,5 +1,5 @@
 import HeroImage from '@/assets/images/hero.png'
-import { generateMetadata } from '@/lib/utils';
+// import { generateMetadata } from '@/lib/utils';
 import { useMemo } from 'react';
 
 type FileUpload = string
@@ -31,9 +31,9 @@ export const HeroSection = ({title = 'Kapan Kapan', date = new Date('12/31/2024'
     )
 }
 
-HeroSection.metadata = {
-    name: 'HeroSection',
-    props: generateMetadata(HeroSection)
-}
+// HeroSection.metadata = {
+//     name: 'HeroSection',
+//     props: generateMetadata(HeroSection)
+// }
 
-export const HeroSectionMetadata = generateMetadata(HeroSection);
+// export const HeroSectionMetadata = generateMetadata(HeroSection);

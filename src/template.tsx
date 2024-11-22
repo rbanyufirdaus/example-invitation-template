@@ -1,5 +1,4 @@
 import * as React from "react"
-import { generateMetadata } from "./lib/utils";
 import { HeroSection } from "./sections/hero";
 import { GreetingSection } from "./sections/greeting";
 import { CountdownSection } from "./sections/countdown";
@@ -17,13 +16,10 @@ export const MinimalLeafyPurpleTemplate = ({children}: MinimalLeafyPurpleTemplat
 }
 
 MinimalLeafyPurpleTemplate.metadata = {
-    name: MinimalLeafyPurpleTemplate.toString(),
-    props: generateMetadata(MinimalLeafyPurpleTemplate),
+    name: "MinimalLeafyPurpleTemplate",
     sections: {
         'hero-section': HeroSection,
         'greeting-section': GreetingSection,
         'countdown-section': CountdownSection,
     }
 }
-
-export const MinimalLeafyPurpleTemplateMetadata = generateMetadata(MinimalLeafyPurpleTemplate);

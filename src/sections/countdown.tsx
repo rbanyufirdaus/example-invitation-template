@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import moment from 'moment';
-import { generateMetadata } from "@/lib/utils";
+// import { generateMetadata } from "@/lib/utils";
 
 const calculateDuration = (eventTime: number) =>
     moment.duration(
@@ -67,9 +67,9 @@ export const CountdownSection = ({date = new Date('12/31/2024')}: CountdownSecti
     )
 }
 
-CountdownSection.metadata = {
-    name: CountdownSection.toString(),
-    props: generateMetadata(CountdownSection)
-}
+// CountdownSection.metadata = {
+//     name: CountdownSection.toString(),
+//     props: generateMetadata(CountdownSection)
+// }
 
-export const CountdownSectionMetadata = generateMetadata(CountdownSection);
+// export const CountdownSectionMetadata = generateMetadata(CountdownSection);
