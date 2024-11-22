@@ -4,7 +4,8 @@ import { resolve } from "path";
 import dts from "vite-plugin-dts";
 import tailwindcss from "tailwindcss";
 import path from "path"
-import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+// @ts-ignore
+import scopeTailwind from "vite-plugin-scope-tailwind";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -27,7 +28,7 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), cssInjectedByJsPlugin(), dts({ insertTypesEntry: true, rollupTypes: true, tsconfigPath: './tsconfig.app.json' })],
+  plugins: [react(), scopeTailwind({ react: true }), dts({ insertTypesEntry: true, rollupTypes: true, tsconfigPath: './tsconfig.app.json' })],
   css: {
     postcss: {
       plugins: [tailwindcss],
