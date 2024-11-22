@@ -1,4 +1,4 @@
-import { JSX as JSX_2 } from 'react/jsx-runtime';
+import { JSX as JSX_2 } from 'react';
 
 declare type FileUpload = string;
 

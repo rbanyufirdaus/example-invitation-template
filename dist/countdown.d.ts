@@ -1,4 +1,4 @@
-import { JSX as JSX_2 } from 'react/jsx-runtime';
+import { JSX as JSX_2 } from 'react';
 
 export declare const CountdownSection: ({ date }: CountdownSectionProps) => JSX_2.Element;
 

@@ -1,4 +1,4 @@
-import { JSX as JSX_2 } from 'react/jsx-runtime';
+import { JSX as JSX_2 } from 'react';
 import * as React_2 from 'react';
 
 export declare const CountdownSection: ({ date }: CountdownSectionProps) => JSX_2.Element;
@@ -26,13 +26,13 @@ export declare interface HeroSectionProps {
 }
 
 export declare const MinimalLeafyPurpleTemplate: {
-    ({ children }: MinimalLeafyPurpleTemplateProps): JSX_2.Element;
+    ({ children }: MinimalLeafyPurpleTemplateProps): React_2.JSX.Element;
     metadata: {
         name: string;
         sections: {
-            'hero-section': ({ title, date, imageUrl }: HeroSectionProps) => JSX_2.Element;
-            'greeting-section': ({ title, brideName, groomName }: GreetingSectionProps) => JSX_2.Element;
-            'countdown-section': ({ date }: CountdownSectionProps) => JSX_2.Element;
+            'hero-section': ({ title, date, imageUrl }: HeroSectionProps) => React_2.JSX.Element;
+            'greeting-section': ({ title, brideName, groomName }: GreetingSectionProps) => React_2.JSX.Element;
+            'countdown-section': ({ date }: CountdownSectionProps) => React_2.JSX.Element;
         };
     };
 };
