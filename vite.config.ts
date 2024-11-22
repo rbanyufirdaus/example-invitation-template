@@ -17,7 +17,7 @@ function ReactMetadataPlugin(): Plugin {
     name: "vite-react-metadata",
 
     transform(code, id) {
-      if (!id.endsWith(".tsx")) return;
+      if (!id.includes('sections') || !id.endsWith(".tsx")) return;
 
       try {
         // Generate metadata using react-docgen-typescript
