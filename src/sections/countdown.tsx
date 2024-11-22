@@ -70,7 +70,7 @@ export const CountdownSection = ({date = new Date('12/31/2024')}: CountdownSecti
 
 // CountdownSection.metadata = {
 //     name: CountdownSection.toString(),
-//     props: generateMetadata(CountdownSection)
+//     props: 
 // }
 
 // export const CountdownSectionMetadata = generateMetadata(CountdownSection);

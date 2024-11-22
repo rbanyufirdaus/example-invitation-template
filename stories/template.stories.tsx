@@ -5,7 +5,6 @@ import React from 'react';
 import { HeroSection } from '../src/sections/hero';
 import { GreetingSection } from '../src/sections/greeting';
 import { CountdownSection } from '../src/sections/countdown';
-import { generateMetadata } from '../src/lib/utils';
 
 const meta: Meta<typeof MinimalLeafyPurpleTemplate> = {
 	title: 'Template/Minimal Leafy Purple',
@@ -18,7 +17,7 @@ type Story = StoryObj<typeof MinimalLeafyPurpleTemplate>;
 export const Primary: Story = {
   args: {},
   render: _ => {
-    console.log(generateMetadata(HeroSection))
+    // console.log(CountdownSection.metadata)
     return (
     <MinimalLeafyPurpleTemplate>
       <HeroSection />

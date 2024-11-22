@@ -1,47 +1,16 @@
-// import * as fs from 'fs';
-// import * as path from 'path';
-// import { parse, ComponentDoc } from 'react-docgen-typescript';
+import { parse, ComponentDoc } from "react-docgen-typescript";
 
-// /**
-//  * Generates metadata for React components and attaches it as a static property.
-//  * 
-//  * @param componentsDir - The directory containing React components.
-//  * @param outputDir - The directory to save the processed components with metadata.
-//  */
-// export function generateMetadata(componentsDir: string, outputDir: string): void {
-export function generateMetadata(): void {
-//   // Ensure the output directory exists
-//   if (!fs.existsSync(outputDir)) {
-//     fs.mkdirSync(outputDir, { recursive: true });
-//   }
+export function attachMetadataToComponent<T>(
+  Component: React.ComponentType<T>,
+  componentPath: string
+): void {
+  const componentDocs: ComponentDoc[] = parse(componentPath, { savePropValueAsString: true });
 
-//   // Get all .tsx files from the components directory
-//   const files = fs.readdirSync(componentsDir).filter((file) => file.endsWith('.tsx'));
+  if (componentDocs.length === 0) {
+    console.warn(`No metadata found for component at: ${componentPath}`);
+    return;
+  }
 
-//   files.forEach((file) => {
-//     const filePath = path.join(componentsDir, file);
-//     const source = fs.readFileSync(filePath, 'utf8');
-
-//     try {
-//       // Parse metadata using react-docgen-typescript
-//       const [doc]: ComponentDoc[] = parse(filePath, { savePropValueAsString: true });
-
-//       // Generate the new component file with metadata attached
-//       const componentWithMetadata = `
-//         import Component from '${path.relative(outputDir, filePath).replace(/\\/g, '/')}';
-
-//         Component.metadata = ${JSON.stringify(doc, null, 2)};
-
-//         export default Component;
-//       `;
-
-//       const outputFilePath = path.join(outputDir, file);
-//       fs.writeFileSync(outputFilePath, componentWithMetadata);
-//       console.log(`Processed: ${file}`);
-//     } catch (error) {
-//       console.error(`Error processing ${file}:`, (error as Error).message);
-//     }
-//   });
-
-//   console.log('Metadata generation completed.');
+  // Attach metadata to the component
+  (Component as any).metadata = componentDocs[0]; // Attach metadata as a custom property
 }
