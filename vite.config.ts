@@ -15,13 +15,14 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss"],
+      external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss", "@emotion/server"],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
           tailwindcss: "tailwindcss",
           "react/jsx-runtime": "react/jsx-runtime",
+          "@emotion/server": "@emotion/server",
         },
       },
     },

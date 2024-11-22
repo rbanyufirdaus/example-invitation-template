@@ -21,7 +21,7 @@
     
     "target": "esnext",
     "jsx": "preserve",
-    "lib": ["esnext"],
+    "lib": ["dom", "esnext"],
     "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "node",

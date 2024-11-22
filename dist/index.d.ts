@@ -9,6 +9,13 @@ export declare interface CountdownSectionProps {
 
 declare type FileUpload = string;
 
+/**
+ * Retrieves the raw CSS from Emotion's cache.
+ *
+ * @returns A string containing all CSS collected during the rendering process.
+ */
+export declare function getCssText(): string;
+
 export declare const GreetingSection: ({ title, brideName, groomName }: GreetingSectionProps) => JSX_2.Element;
 
 export declare interface GreetingSectionProps {
@@ -40,5 +47,18 @@ export declare const MinimalLeafyPurpleTemplate: {
 export declare interface MinimalLeafyPurpleTemplateProps extends React_2.HTMLAttributes<HTMLDivElement> {
     id?: string;
 }
+
+/**
+ * Renders a React component and extracts critical CSS.
+ *
+ * @param Component - The React component to render.
+ * @param props - The props to pass to the component.
+ * @returns An object containing the rendered HTML, extracted CSS, and Emotion style IDs.
+ */
+export declare function renderWithStyles<T extends object>(Component: React.ComponentType<T>, props?: T): {
+    html: string;
+    css: string;
+    ids: string[];
+};
 
 export { }
