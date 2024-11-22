@@ -1,4 +1,5 @@
 import * as React from "react"
+import '@/assets/index.css'
 import { HeroSection } from "./sections/hero";
 import { GreetingSection } from "./sections/greeting";
 import { CountdownSection } from "./sections/countdown";
