@@ -1,4 +1,3 @@
-import '@/assets/style.css';
 import HeroImage from '@/assets/images/hero.png'
 // import { generateMetadata } from '@/lib/utils';
 import { useMemo } from 'react';

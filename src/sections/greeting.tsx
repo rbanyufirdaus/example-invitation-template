@@ -1,5 +1,4 @@
 // import { generateMetadata } from "@/lib/utils";
-import '@/assets/style.css';
 export interface GreetingSectionProps {
     title?: string;
     brideName?: string;

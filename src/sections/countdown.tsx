@@ -1,4 +1,3 @@
-import '@/assets/style.css';
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import moment from 'moment';
 // import { generateMetadata } from "@/lib/utils";
