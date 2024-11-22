@@ -23,11 +23,6 @@ export default defineConfig({
           tailwindcss: "tailwindcss",
         },
         preserveModules: false,
-        // Put chunk files at <output>/chunks
-        chunkFileNames: 'chunks/[name].[hash].js',
-        // Put chunk styles at <output>/assets
-        assetFileNames: 'assets/[name][extname]',
-        entryFileNames: '[name].js',
       },
     },
     sourcemap: true,
