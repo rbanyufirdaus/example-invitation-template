@@ -4,6 +4,7 @@ import { resolve } from "path";
 import dts from "vite-plugin-dts";
 import tailwindcss from "tailwindcss";
 import path from "path"
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -27,7 +28,7 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), dts({ insertTypesEntry: true, rollupTypes: true, tsconfigPath: './tsconfig.app.json' })],
+  plugins: [react(), cssInjectedByJsPlugin({styleId: 'minimal-leafy-purple'}), dts({ insertTypesEntry: true, rollupTypes: true, tsconfigPath: './tsconfig.app.json' })],
   css: {
     postcss: {
       plugins: [tailwindcss],
