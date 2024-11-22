@@ -4,7 +4,6 @@ import { resolve } from "path";
 import dts from "vite-plugin-dts";
 import tailwindcss from "tailwindcss";
 import path from "path"
-import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,21 +14,20 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss", "@emotion/server"],
+      external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss"],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
           tailwindcss: "tailwindcss",
           "react/jsx-runtime": "react/jsx-runtime",
-          "@emotion/server": "@emotion/server",
         },
       },
     },
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), cssInjectedByJsPlugin({styleId: 'minimal-leafy-purple'}), dts({ insertTypesEntry: true, rollupTypes: true, tsconfigPath: './tsconfig.app.json' })],
+  plugins: [react(), dts({ insertTypesEntry: true, rollupTypes: true, tsconfigPath: './tsconfig.app.json' })],
   css: {
     postcss: {
       plugins: [tailwindcss],
