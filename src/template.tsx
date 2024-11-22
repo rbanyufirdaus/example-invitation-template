@@ -1,8 +1,8 @@
 import * as React from "react"
+import '@/assets/index.css';
 import { HeroSection } from "./sections/hero";
 import { GreetingSection } from "./sections/greeting";
 import { CountdownSection } from "./sections/countdown";
-import '@/assets/index.css';
 
 export interface MinimalLeafyPurpleTemplateProps extends React.HTMLAttributes<HTMLDivElement> {
     id?: string;
