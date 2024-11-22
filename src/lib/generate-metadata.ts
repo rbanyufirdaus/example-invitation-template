@@ -9,6 +9,7 @@
 //  * @param outputDir - The directory to save the processed components with metadata.
 //  */
 // export function generateMetadata(componentsDir: string, outputDir: string): void {
+export function generateMetadata(): void {
 //   // Ensure the output directory exists
 //   if (!fs.existsSync(outputDir)) {
 //     fs.mkdirSync(outputDir, { recursive: true });
@@ -43,4 +44,4 @@
 //   });
 
 //   console.log('Metadata generation completed.');
-// }
+}
