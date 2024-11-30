@@ -24,7 +24,7 @@ export const HeroSection = ({title = 'Kapan Kapan', date = new Date('12/31/2024'
                 <img src={imageUrl && imageUrl.trim().length > 0 ? imageUrl : HeroImage} alt="Hero Image" />
             </div>
             <div className="flex flex-col gap-2 justify-center text-center w-full text-primary-foreground z-10">
-                <h1 className="font-bold text-[4rem]">{title}</h1>
+                <h1 className="font-bold text-[4rem] motion-preset-slide-right">{title}</h1>
                 <h5 className="font-bold text-[1.25rem] tracking-[4px]">{formattedDate}</h5>
             </div>
         </section>

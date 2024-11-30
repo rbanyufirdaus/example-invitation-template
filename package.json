@@ -36,8 +36,10 @@
     "react": "^18.3.1",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.3.1",
+    "react-intersection-observer": "^9.13.1",
     "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-motion": "0.4.3-beta"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "3.2.2",
